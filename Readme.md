@@ -1,14 +1,14 @@
 #IdeaBiz PHP sample
 
 ##Configuration
-* Make Config.json and lib/data.json writable
+* Make **config.json** and **lib/data.json** writable
 * Change config.json files properties based on your application
 
 
-For getting refresh token, you have to use token api with use username for one time
+To get refresh token, you have to use **token api** with username once [ refer Documentation](http://docs.ideabiz.lk/en/Authorization/Authorization%20v1)
 
 ## Use
-Once configure config.json, you can include `IdeaBizAPIHandler.php` to your code. then call `sendAPICall` method 
+Once config.json is configured, you can include `IdeaBizAPIHandler.php` to your code. then call `sendAPICall` method 
 
 For example
 
@@ -22,7 +22,7 @@ $out = $auth->sendAPICall($url,RequestMethod::POST,$body);
 ### URL
  complete URL of ideabiz api. Example for sms `https://ideabiz.lk/apicall/smsmessaging/v1/outbound/94777123456/requests`
 ### Method
- its HTTP method. you can use `RequestMethod` Enum for that. it contain. this accept be string also. like "POST", "GET"
+ its a HTTP method. you can use `RequestMethod` Enum for that. this accepts string as well such as "POST and "GET". RequestMethod enum contains
 
 ```
 RequestMethod::POST
@@ -33,7 +33,7 @@ RequestMethod::PUT
 ```
 
 ### Body
-this is plain string that contain any payload. If you need send object, please `json_encode` it.
+this is a plain string that contains any payload. If you need to send an object please `json_encode` it.
 
 ```
 $out = $auth->sendAPICall($url,RequestMethod::POST,json_encode($obj));
@@ -56,24 +56,24 @@ Result returns as array.
 ```
 
 #### status 
-this contain OK for success
+this contains OK for success
 
 #### Status Code
-this contain http status code. eg : 200, 400 like that
+this contains http status code. eg : 200, 400 like that
 
 #### Time
-Time that took to complete request
+Time taken to complete the request
 
 #### Headers
-HTTP headers that returns by server
+HTTP headers that returns by the server
 
 #### Body
-body is plain text. if you cant you cant `json_decode` it
+body is in plain text. if you have an object, you can use `json_decode` 
 
 
 
 ### Error
-this happen if connection fail or errors other than Authentication failures
+ this happens if connection fails or an error occurs other than the Authentication failures
 
 
 ```
@@ -83,14 +83,14 @@ this happen if connection fail or errors other than Authentication failures
 
 
 #### status 
-this contain ERROR for for Errors
+The string value "ERROR" is given for the Errors
 
 #### error
 this contain error description
 
-
+ 
 ### Exceptions
-This return two type of exceptions if any authentication errors
+This returns two types of exceptions if any authentication errors
 
 its
 ```
