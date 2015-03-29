@@ -1,5 +1,7 @@
 #IdeaBiz PHP sample
 
+This will handle the API call. and also it handle to token. If need,it will refresh existing token automatically . So you only need to make API call via this SDK
+
 ##Configuration
 * Make **config.json** and **lib/data.json** writable
 * Change config.json files properties based on your application
