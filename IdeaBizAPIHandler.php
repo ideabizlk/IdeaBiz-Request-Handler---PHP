@@ -29,7 +29,7 @@ class IdeaBizAPIHandler
         if ($r['status'] != "OK")
             return $r;
 
-        if ($r['statusCode'] >= 400) {
+        if ($r['statusCode'] == 401 && strpos($r['body'], 'Expired') !== false) {
             $this->auth->renewToken();
             $r = getHTTP($url, $body, $method, null, array("Content-Type: " . $contentType,
                 "Accept: " . $accept, "Authorization: Bearer " . $this->auth->getAccessToken()), null, true);
