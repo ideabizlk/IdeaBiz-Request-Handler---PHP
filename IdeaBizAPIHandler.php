@@ -5,8 +5,8 @@
  * Date: 3/23/2015
  * Time: 11:51 PM
  */
-include 'lib/Exceptions.php';
-include 'lib/Authenticator.php';
+include dirname(__FILE__) . '/lib/Exceptions.php';
+include dirname(__FILE__) . '/lib/Authenticator.php';
 
 class IdeaBizAPIHandler
 {
@@ -23,6 +23,10 @@ class IdeaBizAPIHandler
      */
     function sendAPICall($url, $method, $body, $contentType = "application/json", $accept = "application/json")
     {
+        if($this->auth->getAccessToken() == null){
+            $this->auth->renewToken();
+        }
+
         $r = getHTTP($url, $body, $method, null, array("Content-Type: " . $contentType,
             "Accept: " . $accept, "Authorization: Bearer " . $this->auth->getAccessToken()), null, true);
 

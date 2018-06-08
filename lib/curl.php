@@ -6,7 +6,7 @@
  * malindaprasad.com
  */
 
-include_once 'lib/ResponseStatus.php';
+include_once dirname(__FILE__) .'/ResponseStatus.php';
 
 function getHTTP($url, $param, $method, $httpuserpw, $header, $agent, $followLocation)
 {

@@ -3,5 +3,7 @@
     "auth_consumerKey": "",
     "auth_consumerSecret": "",
     "auth_refreshToken": "",
-    "auth_scope" : "PRODUCTION"
+    "auth_scope" : "PRODUCTION",
+	"auth_username" :"",
+	"auth_pw" : ""
 }
